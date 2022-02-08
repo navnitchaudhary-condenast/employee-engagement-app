@@ -12,6 +12,8 @@ import TodaysEngagementActivity from "./components/todaysEngagementActivity/toda
 import AdapterDateFns from '@mui/lab/AdapterDateFns';
 import LocalizationProvider from '@mui/lab/LocalizationProvider';
 import EditProfile from "./components/profile/EditProfile";
+import ActivityList from "./components/activityList/ActivityList";
+import AddActivity from "./components/addActivity/AddActivtiy";
 
 const theme = createTheme();
 
@@ -30,6 +32,8 @@ const App = () => {
                   <Route path="/signup" component={SignUp} />
                   <Route path="/dashboard" component={DashBoard} />
                   <Route path="/profile/edit" component={EditProfile} />
+                  <Route path="/activty-list" component={ActivityList} />
+                  <Route path="/add-activity" component={AddActivity} />
                   <Route
                     path="/todays-engagement-activity"
                     component={TodaysEngagementActivity}
