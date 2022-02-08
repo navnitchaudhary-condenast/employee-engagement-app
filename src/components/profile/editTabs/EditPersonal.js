@@ -6,7 +6,6 @@ import EditProfileContext from '../editProfileContext';
 
 const EditPersonal = () => {
     const { personalInfo, updatePersonalInfo } = useContext(EditProfileContext);
-    console.log(personalInfo, 'personalInfo');
 
     return (
         <Grid container spacing={2}>
@@ -86,8 +85,8 @@ const EditPersonal = () => {
                                 value={personalInfo.country}
                                 onChange={(newValue) => updatePersonalInfo('country', newValue)}
                             >
-                                <MenuItem value='India'>India</MenuItem>
-                                <MenuItem value='US'>US</MenuItem>
+                                <MenuItem value={'India'}>India</MenuItem>
+                                <MenuItem value={'US'}>US</MenuItem>
                             </Select>
                         </FormControl>
                     </Grid>
@@ -128,8 +127,7 @@ const EditPersonal = () => {
 
                     <Grid item xs={12}>
                         <Typography
-                            component="h6"
-                            variant="h6"
+                            fontWeight={600}
                             align="center"
                             color="text.primary"
                         >

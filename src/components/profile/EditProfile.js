@@ -1,6 +1,6 @@
 import React from 'react';
 import { createTheme, ThemeProvider } from "@mui/material/styles";
-import { Box, Tab, CssBaseline, Container } from '@mui/material';
+import { Box, Tab, CssBaseline, Container, Typography } from '@mui/material';
 import { TabContext, TabList, TabPanel } from '@mui/lab';
 import EditPersonal from './editTabs/EditPersonal';
 import EditOfficial from './editTabs/EditOfficial';
@@ -24,6 +24,9 @@ const EditProfile = () => {
                         alignItems: "center",
                     }}
                 >
+                    <Typography component="h1" variant="h5">
+                        Edit Profile
+                    </Typography>
                     <TabContext value={selectedTab}>
                         <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
                             <TabList onChange={(event, newValue) => setSelectedTab(newValue)} aria-label="Edit Profile">
