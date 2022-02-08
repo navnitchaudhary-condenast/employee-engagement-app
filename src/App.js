@@ -34,7 +34,7 @@ const App = () => {
                   <Route path="/my-organisation" component={MyOrganisation} />
                   <Route path="/analytics" component={Analytics} />
                   <Route path="/profile/edit" component={EditProfile} />
-                  <Route path="/activty-list" component={ActivityList} />
+                  <Route path="/activity-list" component={ActivityList} />
                   <Route path="/add-activity" component={AddActivity} />
                   <Route
                     path="/todays-engagement-activity"

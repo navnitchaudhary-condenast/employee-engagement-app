@@ -33,7 +33,7 @@ const AddActivity = () => {
                     sx={{ mt: 3,  '& .MuiTextField-root': { m: 1, width: '75ch' } }}>
                     <Grid container spacing={2}>
                         <Grid item xs={12}>
-                            <TextField id="title" placeholder="Enter activity name" required 
+                            <TextField id="title" placeholder="Enter activity name" required error={title === ""} 
                                 fullWidth label="Activity Title" variant="standard" margin="normal" 
                                 onInput={ e=>setTitle(e.target.value)}/>
                         </Grid>
