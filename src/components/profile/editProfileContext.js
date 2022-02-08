@@ -3,29 +3,29 @@ import { createContext, useEffect, useState } from "react";
 const EditProfileContext = createContext();
 const profile = {
     fullName: 'Michael Scott',
-    email: 'michael_scott@gmail.com',
+    email: 'michael_scott@theoffice.us',
     dob: new Date(1965, 2, 15),
     mobile: '+1-202-555-0101',
     state: 'Pennsylvania',
     country: 'US',
     about: "I became a salesman because of people. I love making friends. But then I was promoted to manager at a very young age. And I still try to be a friend first. But, you know... when you're very successful, your co-workers look at you differently.",
 
-    facebook: '1',
-    twitter: '2',
-    instagram: '3',
-    linkedin: '4',
-    snapchat: '5',
-    stackoverflow: '6',
+    facebook: 'https://www.facebook.com/michael.scott.office',
+    twitter: 'https://twitter.com/tobyhater?lang=en',
+    instagram: 'https://www.instagram.com/michaelscottdaily/?hl=en',
+    linkedin: 'https://www.linkedin.com/in/michael-scott-122570130/',
+    snapchat: '',
+    stackoverflow: '',
 
     cnOffice: 'of',
     cnTeam: 'team',
     role: 'role',
     skillset: 'skill',
 
-    food: 'food',
-    music: 'music',
-    sports: 'spro',
-    books: 'book',
+    food: 'Ice cream, Hostess apple pie',
+    music: 'The Longest Time',
+    sports: 'Ice Hockey',
+    books: '',
 };
 
 const pickByKeys = (obj, keys) => {
@@ -58,13 +58,12 @@ export function EditProfileProvider({ children }) {
             // const response = await fetch(`/api/profile/${userId}`);
             // const profileData = await response.json();
             const profileData = profile;
-            
+
             setProfileFieldValues(profileData);
             setProfileLoading(false);
         }
 
         getProfile();
-
     }, []);
 
     const onSaveProfile = async () => {
