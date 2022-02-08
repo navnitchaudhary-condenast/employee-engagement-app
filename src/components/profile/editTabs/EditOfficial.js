@@ -15,7 +15,7 @@ const EditOfficial = () => {
                     label="CN Office"
                     name="cnOffice"
                     size='small'
-                    value={officialInfo.cnOffice}
+                    value={officialInfo.cnOffice || ''}
                     onChange={(newValue) => updateOfficialInfo('cnOffice', newValue)}
                 />
             </Grid>
@@ -26,7 +26,7 @@ const EditOfficial = () => {
                     label="CN Team/Project"
                     name="cnTeam"
                     size='small'
-                    value={officialInfo.cnTeam}
+                    value={officialInfo.cnTeam || ''}
                     onChange={(newValue) => updateOfficialInfo('cnTeam', newValue)}
                 />
             </Grid>
@@ -37,7 +37,7 @@ const EditOfficial = () => {
                     label="Role"
                     name="role"
                     size='small'
-                    value={officialInfo.role}
+                    value={officialInfo.role || ''}
                     onChange={(newValue) => updateOfficialInfo('role', newValue)}
                 />
             </Grid>
@@ -50,7 +50,7 @@ const EditOfficial = () => {
                     size='small'
                     multiline
                     rows={3}
-                    value={officialInfo.skillset}
+                    value={officialInfo.skillset || ''}
                     onChange={(newValue) => updateOfficialInfo('skillset', newValue)}
                 />
             </Grid>
