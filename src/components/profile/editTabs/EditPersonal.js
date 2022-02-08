@@ -1,18 +1,22 @@
 import React, { useContext } from 'react';
 import Grid from "@mui/material/Grid";
 import MobileDatePicker from '@mui/lab/MobileDatePicker';
-import { Box, Divider, InputLabel, MenuItem, Select, FormControl, TextField, Typography } from '@mui/material';
+import { Box, Divider, InputLabel, MenuItem, Select, FormControl, TextField, Typography, Button } from '@mui/material';
 import EditProfileContext from '../editProfileContext';
 import fileUtils from '../../../utils/file';
+import { styled } from '@mui/material/styles';
 
 const { convertToBase64 } = fileUtils;
+const InputNoDisplay = styled('input')({
+    display: 'none',
+});
 
 const EditPersonal = () => {
     const { personalInfo, updatePersonalInfo, passwordInfo, updatePasswordInfo } = useContext(EditProfileContext);
 
     const uploadImage = async (e) => {
         const file = e.target.files[0];
-        if(file) {
+        if (file) {
             const base64Image = await convertToBase64(file)
             updatePersonalInfo('image', base64Image);
         }
@@ -27,17 +31,17 @@ const EditPersonal = () => {
                     alt="Profile Photo"
                     src={personalInfo.image}>
                 </Box>
-                <TextField
-                    id="fileUpload"
-                    type="file"
-                    accept='image/*'
-                    required
-                    label="Upload Image"
-                    name="fileUpload"
-                    onChange={uploadImage}
-                    size="small"
-                    variant="standard"
-                />
+
+                <label htmlFor="fileUpload">
+                    <InputNoDisplay
+                        id="fileUpload"
+                        type="file"
+                        accept='image/*'
+                        onChange={uploadImage} />
+                    <Button variant="contained" component="span">
+                        Upload
+                    </Button>
+                </label>
             </Grid>
             <Grid item xs={12} md={8}>
                 <Grid container spacing={2}>

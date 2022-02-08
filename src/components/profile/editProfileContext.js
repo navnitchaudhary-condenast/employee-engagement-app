@@ -2,7 +2,7 @@ import { createContext, useEffect, useState } from "react";
 
 const EditProfileContext = createContext();
 const profile = {
-    image: 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&w=350&dpr=2',
+    image: 'https://static.wikia.nocookie.net/theoffice/images/b/be/Character_-_MichaelScott.PNG',
     fullName: 'Michael Scott',
     email: 'michael_scott@theoffice.us',
     dob: new Date(1965, 2, 15),
