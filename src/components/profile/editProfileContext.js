@@ -2,6 +2,7 @@ import { createContext, useEffect, useState } from "react";
 
 const EditProfileContext = createContext();
 const profile = {
+    image: 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&w=350&dpr=2',
     fullName: 'Michael Scott',
     email: 'michael_scott@theoffice.us',
     dob: new Date(1965, 2, 15),
@@ -37,7 +38,7 @@ const pickByKeys = (obj, keys) => {
 
 export function EditProfileProvider({ children }) {
     const keyMap = {
-        personal: ['fullName', 'email', 'dob', 'mobile', 'state', 'country', 'about'],
+        personal: ['fullName', 'email', 'dob', 'mobile', 'state', 'country', 'about', 'image'],
         official: ['cnOffice', 'cnTeam', 'role', 'skillset'],
         social: ['facebook', 'twitter', 'instagram', 'linkedin', 'snapchat', 'stackoverflow'],
         interests: ['food', 'music', 'sports', 'books'],
@@ -104,7 +105,7 @@ export function EditProfileProvider({ children }) {
     }
 
     const updatePersonalInfo = (key, eve) => {
-        if (key === 'dob') {
+        if (['dob', 'image'].includes(key)) {
             setPersonalInfo({ ...personalInfo, [key]: eve });
             return;
         }

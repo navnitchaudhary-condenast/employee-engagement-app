@@ -3,9 +3,20 @@ import Grid from "@mui/material/Grid";
 import MobileDatePicker from '@mui/lab/MobileDatePicker';
 import { Box, Divider, InputLabel, MenuItem, Select, FormControl, TextField, Typography } from '@mui/material';
 import EditProfileContext from '../editProfileContext';
+import fileUtils from '../../../utils/file';
+
+const { convertToBase64 } = fileUtils;
 
 const EditPersonal = () => {
     const { personalInfo, updatePersonalInfo, passwordInfo, updatePasswordInfo } = useContext(EditProfileContext);
+
+    const uploadImage = async (e) => {
+        const file = e.target.files[0];
+        if(file) {
+            const base64Image = await convertToBase64(file)
+            updatePersonalInfo('image', base64Image);
+        }
+    }
 
     return (
         <Grid container spacing={2}>
@@ -13,9 +24,20 @@ const EditPersonal = () => {
                 <Box
                     component="img"
                     sx={{ height: 'auto', width: '100%', borderRadius: '10px' }}
-                    alt="The house from the offer."
-                    src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&w=350&dpr=2">
+                    alt="Profile Photo"
+                    src={personalInfo.image}>
                 </Box>
+                <TextField
+                    id="fileUpload"
+                    type="file"
+                    accept='image/*'
+                    required
+                    label="Upload Image"
+                    name="fileUpload"
+                    onChange={uploadImage}
+                    size="small"
+                    variant="standard"
+                />
             </Grid>
             <Grid item xs={12} md={8}>
                 <Grid container spacing={2}>
