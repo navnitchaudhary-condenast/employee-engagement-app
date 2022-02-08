@@ -15,7 +15,7 @@ const EditInterests = () => {
                     label="Food"
                     name="food"
                     size='small'
-                    value={interestsInfo.food}
+                    value={interestsInfo.food || ''}
                     onChange={(newValue) => updateInterestsInfo('food', newValue)}
                 />
             </Grid>
@@ -26,7 +26,7 @@ const EditInterests = () => {
                     label="Music"
                     name="music"
                     size='small'
-                    value={interestsInfo.music}
+                    value={interestsInfo.music || ''}
                     onChange={(newValue) => updateInterestsInfo('music', newValue)}
                 />
             </Grid>
@@ -37,7 +37,7 @@ const EditInterests = () => {
                     label="Sports"
                     name="sports"
                     size='small'
-                    value={interestsInfo.sports}
+                    value={interestsInfo.sports || ''}
                     onChange={(newValue) => updateInterestsInfo('sports', newValue)}
                 />
             </Grid>
@@ -48,7 +48,7 @@ const EditInterests = () => {
                     label="Books"
                     name="books"
                     size='small'
-                    value={interestsInfo.books}
+                    value={interestsInfo.books || ''}
                     onChange={(newValue) => updateInterestsInfo('books', newValue)}
                 />
             </Grid>

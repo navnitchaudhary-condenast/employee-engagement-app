@@ -5,7 +5,7 @@ import { Box, Divider, InputLabel, MenuItem, Select, FormControl, TextField, Typ
 import EditProfileContext from '../editProfileContext';
 
 const EditPersonal = () => {
-    const { personalInfo, updatePersonalInfo } = useContext(EditProfileContext);
+    const { personalInfo, updatePersonalInfo, passwordInfo, updatePasswordInfo } = useContext(EditProfileContext);
 
     return (
         <Grid container spacing={2}>
@@ -30,7 +30,7 @@ const EditPersonal = () => {
                             autoFocus
                             size='small'
                             disabled
-                            value={personalInfo.fullName}
+                            value={personalInfo.fullName || ''}
                             onChange={(newValue) => updatePersonalInfo('fullName', newValue)}
                         />
                     </Grid>
@@ -44,7 +44,7 @@ const EditPersonal = () => {
                             autoComplete="email"
                             size='small'
                             disabled
-                            value={personalInfo.email}
+                            value={personalInfo.email || ''}
                             onChange={(newValue) => updatePersonalInfo('email', newValue)}
                         />
                     </Grid>
@@ -53,8 +53,8 @@ const EditPersonal = () => {
                         <MobileDatePicker
                             label="Date of birth"
                             inputFormat="dd/MM/yyyy"
-                            value={personalInfo.dob}
-                            onChange={(newValue) => updatePersonalInfo('dob', newValue)}
+                            value={personalInfo.dob || ''}
+                            onChange={(newValue, value) => updatePersonalInfo('dob', newValue)}
                             renderInput={(params) => <TextField {...params} size='small' fullWidth />}
                         />
                     </Grid>
@@ -68,7 +68,7 @@ const EditPersonal = () => {
                             name="mobile"
                             autoComplete="mobile"
                             size='small'
-                            value={personalInfo.mobile}
+                            value={personalInfo.mobile || ''}
                             onChange={(newValue) => updatePersonalInfo('mobile', newValue)}
                         />
                     </Grid>
@@ -82,9 +82,10 @@ const EditPersonal = () => {
                                 id="country"
                                 label="Country"
                                 sx={{ textAlign: 'left' }}
-                                value={personalInfo.country}
+                                value={personalInfo.country || ''}
                                 onChange={(newValue) => updatePersonalInfo('country', newValue)}
                             >
+                                <MenuItem value={''}></MenuItem>
                                 <MenuItem value={'India'}>India</MenuItem>
                                 <MenuItem value={'US'}>US</MenuItem>
                             </Select>
@@ -100,7 +101,7 @@ const EditPersonal = () => {
                             name="state"
                             autoComplete="state"
                             size='small'
-                            value={personalInfo.state}
+                            value={personalInfo.state || ''}
                             onChange={(newValue) => updatePersonalInfo('state', newValue)}
                         />
                     </Grid>
@@ -116,7 +117,7 @@ const EditPersonal = () => {
                             size='small'
                             multiline
                             rows={3}
-                            value={personalInfo.about}
+                            value={personalInfo.about || ''}
                             onChange={(newValue) => updatePersonalInfo('about', newValue)}
                         />
                     </Grid>
@@ -139,10 +140,12 @@ const EditPersonal = () => {
                         <TextField
                             type="password"
                             fullWidth
-                            id="oldPassword"
+                            id="currentPassword"
                             label="Current Password"
-                            name="oldPassword"
+                            name="currentPassword"
                             size='small'
+                            value={passwordInfo.current || ''}
+                            onChange={(newValue) => updatePasswordInfo('current', newValue)}
                         />
                     </Grid>
                     <Grid item xs={12} md={6} />
@@ -155,6 +158,8 @@ const EditPersonal = () => {
                             label="New Password"
                             name="newPassword"
                             size='small'
+                            value={passwordInfo.new || ''}
+                            onChange={(newValue) => updatePasswordInfo('new', newValue)}
                         />
                     </Grid>
 
@@ -166,6 +171,8 @@ const EditPersonal = () => {
                             label="Confirm Password"
                             name="Confirm Password"
                             size='small'
+                            value={passwordInfo.confirm || ''}
+                            onChange={(newValue) => updatePasswordInfo('confirm', newValue)}
                         />
                     </Grid>
                 </Grid>

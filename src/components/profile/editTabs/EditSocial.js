@@ -16,7 +16,7 @@ const EditSocial = () => {
                     label="LinkedIn"
                     name="linkedin"
                     size='small'
-                    value={socialInfo.linkedin}
+                    value={socialInfo.linkedin || ''}
                     onChange={(newValue) => updateSocialInfo('linkedin', newValue)}
                 />
             </Grid>
@@ -28,7 +28,7 @@ const EditSocial = () => {
                     label="Facebook"
                     name="facebook"
                     size='small'
-                    value={socialInfo.facebook}
+                    value={socialInfo.facebook || ''}
                     onChange={(newValue) => updateSocialInfo('facebook', newValue)}
                 />
             </Grid>
@@ -40,7 +40,7 @@ const EditSocial = () => {
                     label="Instagram"
                     name="instagram"
                     size='small'
-                    value={socialInfo.instagram}
+                    value={socialInfo.instagram || ''}
                     onChange={(newValue) => updateSocialInfo('instagram', newValue)}
                 />
             </Grid>
@@ -52,7 +52,7 @@ const EditSocial = () => {
                     label="Twitter"
                     name="twitter"
                     size='small'
-                    value={socialInfo.twitter}
+                    value={socialInfo.twitter || ''}
                     onChange={(newValue) => updateSocialInfo('twitter', newValue)}
                 />
             </Grid>
@@ -64,7 +64,7 @@ const EditSocial = () => {
                     label="SnapChat"
                     name="snapchat"
                     size='small'
-                    value={socialInfo.snapchat}
+                    value={socialInfo.snapchat || ''}
                     onChange={(newValue) => updateSocialInfo('snapchat', newValue)}
                 />
             </Grid>
@@ -76,7 +76,7 @@ const EditSocial = () => {
                     label="StackOverflow"
                     name="stackoverflow"
                     size='small'
-                    value={socialInfo.stackoverflow}
+                    value={socialInfo.stackoverflow || ''}
                     onChange={(newValue) => updateSocialInfo('stackoverflow', newValue)}
                 />
             </Grid>
