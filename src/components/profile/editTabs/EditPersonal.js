@@ -1,12 +1,26 @@
 import React, { useContext } from 'react';
 import Grid from "@mui/material/Grid";
 import MobileDatePicker from '@mui/lab/MobileDatePicker';
-import { Box, Divider, InputLabel, MenuItem, Select, FormControl, TextField, Typography } from '@mui/material';
+import { Box, Divider, InputLabel, MenuItem, Select, FormControl, TextField, Typography, Button } from '@mui/material';
 import EditProfileContext from '../editProfileContext';
+import fileUtils from '../../../utils/file';
+import { styled } from '@mui/material/styles';
+
+const { convertToBase64 } = fileUtils;
+const InputNoDisplay = styled('input')({
+    display: 'none',
+});
 
 const EditPersonal = () => {
-    const { personalInfo, updatePersonalInfo } = useContext(EditProfileContext);
-    console.log(personalInfo, 'personalInfo');
+    const { personalInfo, updatePersonalInfo, passwordInfo, updatePasswordInfo } = useContext(EditProfileContext);
+
+    const uploadImage = async (e) => {
+        const file = e.target.files[0];
+        if (file) {
+            const base64Image = await convertToBase64(file)
+            updatePersonalInfo('image', base64Image);
+        }
+    }
 
     return (
         <Grid container spacing={2}>
@@ -14,9 +28,20 @@ const EditPersonal = () => {
                 <Box
                     component="img"
                     sx={{ height: 'auto', width: '100%', borderRadius: '10px' }}
-                    alt="The house from the offer."
-                    src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&w=350&dpr=2">
+                    alt="Profile Photo"
+                    src={personalInfo.image}>
                 </Box>
+
+                <label htmlFor="fileUpload">
+                    <InputNoDisplay
+                        id="fileUpload"
+                        type="file"
+                        accept='image/*'
+                        onChange={uploadImage} />
+                    <Button variant="contained" component="span">
+                        Upload
+                    </Button>
+                </label>
             </Grid>
             <Grid item xs={12} md={8}>
                 <Grid container spacing={2}>
@@ -31,7 +56,7 @@ const EditPersonal = () => {
                             autoFocus
                             size='small'
                             disabled
-                            value={personalInfo.fullName}
+                            value={personalInfo.fullName || ''}
                             onChange={(newValue) => updatePersonalInfo('fullName', newValue)}
                         />
                     </Grid>
@@ -45,7 +70,7 @@ const EditPersonal = () => {
                             autoComplete="email"
                             size='small'
                             disabled
-                            value={personalInfo.email}
+                            value={personalInfo.email || ''}
                             onChange={(newValue) => updatePersonalInfo('email', newValue)}
                         />
                     </Grid>
@@ -54,8 +79,8 @@ const EditPersonal = () => {
                         <MobileDatePicker
                             label="Date of birth"
                             inputFormat="dd/MM/yyyy"
-                            value={personalInfo.dob}
-                            onChange={(newValue) => updatePersonalInfo('dob', newValue)}
+                            value={personalInfo.dob || ''}
+                            onChange={(newValue, value) => updatePersonalInfo('dob', newValue)}
                             renderInput={(params) => <TextField {...params} size='small' fullWidth />}
                         />
                     </Grid>
@@ -69,7 +94,7 @@ const EditPersonal = () => {
                             name="mobile"
                             autoComplete="mobile"
                             size='small'
-                            value={personalInfo.mobile}
+                            value={personalInfo.mobile || ''}
                             onChange={(newValue) => updatePersonalInfo('mobile', newValue)}
                         />
                     </Grid>
@@ -83,11 +108,12 @@ const EditPersonal = () => {
                                 id="country"
                                 label="Country"
                                 sx={{ textAlign: 'left' }}
-                                value={personalInfo.country}
+                                value={personalInfo.country || ''}
                                 onChange={(newValue) => updatePersonalInfo('country', newValue)}
                             >
-                                <MenuItem value='India'>India</MenuItem>
-                                <MenuItem value='US'>US</MenuItem>
+                                <MenuItem value={''}></MenuItem>
+                                <MenuItem value={'India'}>India</MenuItem>
+                                <MenuItem value={'US'}>US</MenuItem>
                             </Select>
                         </FormControl>
                     </Grid>
@@ -101,7 +127,7 @@ const EditPersonal = () => {
                             name="state"
                             autoComplete="state"
                             size='small'
-                            value={personalInfo.state}
+                            value={personalInfo.state || ''}
                             onChange={(newValue) => updatePersonalInfo('state', newValue)}
                         />
                     </Grid>
@@ -117,7 +143,7 @@ const EditPersonal = () => {
                             size='small'
                             multiline
                             rows={3}
-                            value={personalInfo.about}
+                            value={personalInfo.about || ''}
                             onChange={(newValue) => updatePersonalInfo('about', newValue)}
                         />
                     </Grid>
@@ -128,8 +154,7 @@ const EditPersonal = () => {
 
                     <Grid item xs={12}>
                         <Typography
-                            component="h6"
-                            variant="h6"
+                            fontWeight={600}
                             align="center"
                             color="text.primary"
                         >
@@ -141,10 +166,12 @@ const EditPersonal = () => {
                         <TextField
                             type="password"
                             fullWidth
-                            id="oldPassword"
+                            id="currentPassword"
                             label="Current Password"
-                            name="oldPassword"
+                            name="currentPassword"
                             size='small'
+                            value={passwordInfo.current || ''}
+                            onChange={(newValue) => updatePasswordInfo('current', newValue)}
                         />
                     </Grid>
                     <Grid item xs={12} md={6} />
@@ -157,6 +184,8 @@ const EditPersonal = () => {
                             label="New Password"
                             name="newPassword"
                             size='small'
+                            value={passwordInfo.new || ''}
+                            onChange={(newValue) => updatePasswordInfo('new', newValue)}
                         />
                     </Grid>
 
@@ -168,6 +197,8 @@ const EditPersonal = () => {
                             label="Confirm Password"
                             name="Confirm Password"
                             size='small'
+                            value={passwordInfo.confirm || ''}
+                            onChange={(newValue) => updatePasswordInfo('confirm', newValue)}
                         />
                     </Grid>
                 </Grid>

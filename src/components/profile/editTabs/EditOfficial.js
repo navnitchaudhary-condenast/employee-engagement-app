@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import Grid from "@mui/material/Grid";
 import { TextField } from '@mui/material';
+import EditProfileContext from '../editProfileContext';
 
 const EditOfficial = () => {
+    const { officialInfo, updateOfficialInfo } = useContext(EditProfileContext);
 
     return (
         <Grid container spacing={2} sx={{maxWidth: 'sm'}}>
@@ -13,6 +15,8 @@ const EditOfficial = () => {
                     label="CN Office"
                     name="cnOffice"
                     size='small'
+                    value={officialInfo.cnOffice || ''}
+                    onChange={(newValue) => updateOfficialInfo('cnOffice', newValue)}
                 />
             </Grid>
             <Grid item xs={12}>
@@ -22,6 +26,8 @@ const EditOfficial = () => {
                     label="CN Team/Project"
                     name="cnTeam"
                     size='small'
+                    value={officialInfo.cnTeam || ''}
+                    onChange={(newValue) => updateOfficialInfo('cnTeam', newValue)}
                 />
             </Grid>
             <Grid item xs={12}>
@@ -31,6 +37,8 @@ const EditOfficial = () => {
                     label="Role"
                     name="role"
                     size='small'
+                    value={officialInfo.role || ''}
+                    onChange={(newValue) => updateOfficialInfo('role', newValue)}
                 />
             </Grid>
             <Grid item xs={12}>
@@ -42,6 +50,8 @@ const EditOfficial = () => {
                     size='small'
                     multiline
                     rows={3}
+                    value={officialInfo.skillset || ''}
+                    onChange={(newValue) => updateOfficialInfo('skillset', newValue)}
                 />
             </Grid>
         </Grid >
