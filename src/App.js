@@ -3,7 +3,7 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 import Container from "@mui/material/Container";
 
 import "./App.css";
-import DashBoard from "./components/dashboard/DashBoard";
+import MyOrganisation from "./components/myOrganisation/MyOrganisation";
 import Footer from "./components/footer/Footer";
 import Header from "./components/header/Header";
 import LogIn from "./components/login/LogIn";
@@ -24,7 +24,7 @@ const App = () => {
               {pathname !== "/" && pathname !== "/signup" && <Header></Header>}
               <Switch>
                 <Route path="/signup" component={SignUp} />
-                <Route path="/dashboard" component={DashBoard} />
+                <Route path="/my-organisation" component={MyOrganisation} />
                 <Route
                   path="/todays-engagement-activity"
                   component={TodaysEngagementActivity}
