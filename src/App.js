@@ -9,6 +9,11 @@ import Header from "./components/header/Header";
 import LogIn from "./components/login/LogIn";
 import SignUp from "./components/signup/SignUp";
 import TodaysEngagementActivity from "./components/todaysEngagementActivity/todaysEngagementActivity";
+import AdapterDateFns from '@mui/lab/AdapterDateFns';
+import LocalizationProvider from '@mui/lab/LocalizationProvider';
+import EditProfile from "./components/profile/EditProfile";
+import ActivityList from "./components/activityList/ActivityList";
+import AddActivity from "./components/addActivity/AddActivtiy";
 
 const theme = createTheme();
 
@@ -18,23 +23,28 @@ const App = () => {
   return (
     <div className="App">
       <ThemeProvider theme={theme}>
-        <main>
-          <Container sx={{ py: 8, mt: 4 }} maxWidth="md">
-            <BrowserRouter>
-              {pathname !== "/" && pathname !== "/signup" && <Header></Header>}
-              <Switch>
-                <Route path="/signup" component={SignUp} />
-                <Route path="/my-organisation" component={MyOrganisation} />
-                <Route
-                  path="/todays-engagement-activity"
-                  component={TodaysEngagementActivity}
-                />
-                <Route path="/" component={LogIn} />
-              </Switch>
-              {pathname !== "/" && pathname !== "/signup" && <Footer></Footer>}
-            </BrowserRouter>
-          </Container>
-        </main>
+        <LocalizationProvider dateAdapter={AdapterDateFns}>
+          <main>
+            <Container sx={{ py: 8, mt: 4 }} maxWidth="md">
+              <BrowserRouter>
+                {pathname !== "/" && pathname !== "/signup" && <Header></Header>}
+                <Switch>
+                  <Route path="/signup" component={SignUp} />
+                  <Route path="/my-organisation" component={MyOrganisation} />
+                  <Route path="/profile/edit" component={EditProfile} />
+                  <Route path="/activty-list" component={ActivityList} />
+                  <Route path="/add-activity" component={AddActivity} />
+                  <Route
+                    path="/todays-engagement-activity"
+                    component={TodaysEngagementActivity}
+                  />
+                  <Route path="/" component={LogIn} />
+                </Switch>
+                {pathname !== "/" && pathname !== "/signup" && <Footer></Footer>}
+              </BrowserRouter>
+            </Container>
+          </main>
+        </LocalizationProvider>
       </ThemeProvider>
     </div>
   );
