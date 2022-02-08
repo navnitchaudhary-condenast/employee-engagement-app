@@ -1,0 +1,10 @@
+.Countary{
+    width: 24.6rem;
+    text-align: left;
+}
+
+.UploadBtn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
