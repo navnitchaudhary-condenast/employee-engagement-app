@@ -8,6 +8,7 @@ import Footer from "./components/footer/Footer";
 import Header from "./components/header/Header";
 import LogIn from "./components/login/LogIn";
 import SignUp from "./components/signup/SignUp";
+import Analytics from "./components/analytics/Analytics";
 import TodaysEngagementActivity from "./components/todaysEngagementActivity/todaysEngagementActivity";
 import AdapterDateFns from '@mui/lab/AdapterDateFns';
 import LocalizationProvider from '@mui/lab/LocalizationProvider';
@@ -31,6 +32,7 @@ const App = () => {
                 <Switch>
                   <Route path="/signup" component={SignUp} />
                   <Route path="/my-organisation" component={MyOrganisation} />
+                  <Route path="/analytics" component={Analytics} />
                   <Route path="/profile/edit" component={EditProfile} />
                   <Route path="/activty-list" component={ActivityList} />
                   <Route path="/add-activity" component={AddActivity} />

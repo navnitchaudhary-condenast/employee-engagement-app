@@ -1,0 +1,473 @@
+{
+  "engagement_activities": [
+    {
+      "id": 1,
+      "name": "Guess Who?",
+      "category": {
+        "slug": "virtual_game",
+        "name": "Virtual Game"
+      },
+      "date_published": "2022-02-09",
+      "num_users": 210,
+      "num_participants": 155,
+      "participation_rate": 73.8
+    },
+    {
+      "id": 2,
+      "name": "Movie Riddle",
+      "category": {
+        "slug": "riddle",
+        "name": "Riddle"
+      },
+      "date_published": "2022-02-08",
+      "num_users": 200,
+      "num_participants": 172,
+      "participation_rate": 86
+    },
+    {
+      "id": 3,
+      "name": "Team Game - 1",
+      "category": {
+        "slug": "multiplayer_game",
+        "name": "Multiplayer Game"
+      },
+      "date_published": "2022-02-07",
+      "num_users": 185,
+      "num_participants": 47,
+      "participation_rate": 25.4
+    },
+    {
+      "id": 4,
+      "name": "Team Game - 2",
+      "category": {
+        "slug": "multiplayer_game",
+        "name": "Multiplayer Game"
+      },
+      "date_published": "2022-02-06",
+      "num_users": 172,
+      "num_participants": 139,
+      "participation_rate": 80.8
+    }
+  ],
+  "daily_active_users": [
+    {
+      "date": "2022-01-01",
+      "active_users": 197
+    },
+    {
+      "date": "2022-01-02",
+      "active_users": 71
+    },
+    {
+      "date": "2022-01-03",
+      "active_users": 37
+    },
+    {
+      "date": "2022-01-04",
+      "active_users": 157
+    },
+    {
+      "date": "2022-01-05",
+      "active_users": 202
+    },
+    {
+      "date": "2022-01-06",
+      "active_users": 90
+    },
+    {
+      "date": "2022-01-07",
+      "active_users": 130
+    },
+    {
+      "date": "2022-01-08",
+      "active_users": 204
+    },
+    {
+      "date": "2022-01-09",
+      "active_users": 89
+    },
+    {
+      "date": "2022-01-10",
+      "active_users": 194
+    },
+    {
+      "date": "2022-01-11",
+      "active_users": 70
+    },
+    {
+      "date": "2022-01-12",
+      "active_users": 152
+    },
+    {
+      "date": "2022-01-13",
+      "active_users": 35
+    },
+    {
+      "date": "2022-01-14",
+      "active_users": 154
+    },
+    {
+      "date": "2022-01-15",
+      "active_users": 26
+    },
+    {
+      "date": "2022-01-16",
+      "active_users": 18
+    },
+    {
+      "date": "2022-01-17",
+      "active_users": 29
+    },
+    {
+      "date": "2022-01-18",
+      "active_users": 58
+    },
+    {
+      "date": "2022-01-19",
+      "active_users": 60
+    },
+    {
+      "date": "2022-01-20",
+      "active_users": 10
+    },
+    {
+      "date": "2022-01-21",
+      "active_users": 91
+    },
+    {
+      "date": "2022-01-22",
+      "active_users": 190
+    },
+    {
+      "date": "2022-01-23",
+      "active_users": 16
+    },
+    {
+      "date": "2022-01-24",
+      "active_users": 141
+    },
+    {
+      "date": "2022-01-25",
+      "active_users": 30
+    },
+    {
+      "date": "2022-01-26",
+      "active_users": 15
+    },
+    {
+      "date": "2022-01-27",
+      "active_users": 206
+    },
+    {
+      "date": "2022-01-28",
+      "active_users": 182
+    },
+    {
+      "date": "2022-01-29",
+      "active_users": 38
+    },
+    {
+      "date": "2022-01-30",
+      "active_users": 163
+    },
+    {
+      "date": "2022-01-31",
+      "active_users": 192
+    },
+    {
+      "date": "2022-02-01",
+      "active_users": 39
+    },
+    {
+      "date": "2022-02-02",
+      "active_users": 193
+    },
+    {
+      "date": "2022-02-03",
+      "active_users": 58
+    },
+    {
+      "date": "2022-02-04",
+      "active_users": 104
+    },
+    {
+      "date": "2022-02-05",
+      "active_users": 190
+    },
+    {
+      "date": "2022-02-06",
+      "active_users": 153
+    },
+    {
+      "date": "2022-02-07",
+      "active_users": 32
+    },
+    {
+      "date": "2022-02-08",
+      "active_users": 156
+    },
+    {
+      "date": "2022-02-09",
+      "active_users": 207
+    },
+    {
+      "date": "2022-02-10",
+      "active_users": 80
+    },
+    {
+      "date": "2022-02-11",
+      "active_users": 183
+    },
+    {
+      "date": "2022-02-12",
+      "active_users": 130
+    }
+  ],
+  "engagement_by_category": [
+    {
+      "category": {
+        "slug": "riddle",
+        "name": "Riddle"
+      },
+      "pct": 23
+    },
+    {
+      "category": {
+        "slug": "mcq",
+        "name": "MCQ"
+      },
+      "pct": 15
+    },
+    {
+      "category": {
+        "slug": "virtual_game",
+        "name": "Virtual Game"
+      },
+      "pct": 43
+    },
+    {
+      "category": {
+        "slug": "multiplayer_game",
+        "name": "Multiplayer Game"
+      },
+      "pct": 19
+    }
+  ],
+  "daily_engagement_rate": [
+    {
+      "date": "2022-01-01",
+      "total_num_users": 150,
+      "num_participants": 93
+    },
+    {
+      "date": "2022-01-02",
+      "total_num_users": 150,
+      "num_participants": 15
+    },
+    {
+      "date": "2022-01-03",
+      "total_num_users": 150,
+      "num_participants": 24
+    },
+    {
+      "date": "2022-01-04",
+      "total_num_users": 150,
+      "num_participants": 4
+    },
+    {
+      "date": "2022-01-05",
+      "total_num_users": 150,
+      "num_participants": 141
+    },
+    {
+      "date": "2022-01-06",
+      "total_num_users": 150,
+      "num_participants": 127
+    },
+    {
+      "date": "2022-01-07",
+      "total_num_users": 150,
+      "num_participants": 118
+    },
+    {
+      "date": "2022-01-08",
+      "total_num_users": 180,
+      "num_participants": 10
+    },
+    {
+      "date": "2022-01-09",
+      "total_num_users": 180,
+      "num_participants": 87
+    },
+    {
+      "date": "2022-01-10",
+      "total_num_users": 180,
+      "num_participants": 163
+    },
+    {
+      "date": "2022-01-11",
+      "total_num_users": 180,
+      "num_participants": 85
+    },
+    {
+      "date": "2022-01-12",
+      "total_num_users": 180,
+      "num_participants": 122
+    },
+    {
+      "date": "2022-01-13",
+      "total_num_users": 180,
+      "num_participants": 94
+    },
+    {
+      "date": "2022-01-14",
+      "total_num_users": 180,
+      "num_participants": 60
+    },
+    {
+      "date": "2022-01-15",
+      "total_num_users": 199,
+      "num_participants": 73
+    },
+    {
+      "date": "2022-01-16",
+      "total_num_users": 199,
+      "num_participants": 170
+    },
+    {
+      "date": "2022-01-17",
+      "total_num_users": 199,
+      "num_participants": 137
+    },
+    {
+      "date": "2022-01-18",
+      "total_num_users": 199,
+      "num_participants": 115
+    },
+    {
+      "date": "2022-01-19",
+      "total_num_users": 199,
+      "num_participants": 51
+    },
+    {
+      "date": "2022-01-20",
+      "total_num_users": 199,
+      "num_participants": 14
+    },
+    {
+      "date": "2022-01-21",
+      "total_num_users": 199,
+      "num_participants": 132
+    },
+    {
+      "date": "2022-01-22",
+      "total_num_users": 199,
+      "num_participants": 187
+    },
+    {
+      "date": "2022-01-23",
+      "total_num_users": 199,
+      "num_participants": 11
+    },
+    {
+      "date": "2022-01-24",
+      "total_num_users": 199,
+      "num_participants": 20
+    },
+    {
+      "date": "2022-01-25",
+      "total_num_users": 199,
+      "num_participants": 36
+    },
+    {
+      "date": "2022-01-26",
+      "total_num_users": 199,
+      "num_participants": 33
+    },
+    {
+      "date": "2022-01-27",
+      "total_num_users": 199,
+      "num_participants": 67
+    },
+    {
+      "date": "2022-01-28",
+      "total_num_users": 199,
+      "num_participants": 92
+    },
+    {
+      "date": "2022-01-29",
+      "total_num_users": 210,
+      "num_participants": 83
+    },
+    {
+      "date": "2022-01-30",
+      "total_num_users": 210,
+      "num_participants": 143
+    },
+    {
+      "date": "2022-01-31",
+      "total_num_users": 210,
+      "num_participants": 136
+    },
+    {
+      "date": "2022-02-01",
+      "total_num_users": 210,
+      "num_participants": 139
+    },
+    {
+      "date": "2022-02-02",
+      "total_num_users": 210,
+      "num_participants": 101
+    },
+    {
+      "date": "2022-02-03",
+      "total_num_users": 210,
+      "num_participants": 82
+    },
+    {
+      "date": "2022-02-04",
+      "total_num_users": 210,
+      "num_participants": 67
+    },
+    {
+      "date": "2022-02-05",
+      "total_num_users": 210,
+      "num_participants": 6
+    },
+    {
+      "date": "2022-02-06",
+      "total_num_users": 210,
+      "num_participants": 74
+    },
+    {
+      "date": "2022-02-07",
+      "total_num_users": 210,
+      "num_participants": 207
+    },
+    {
+      "date": "2022-02-08",
+      "total_num_users": 210,
+      "num_participants": 65
+    },
+    {
+      "date": "2022-02-09",
+      "total_num_users": 210,
+      "num_participants": 152
+    },
+    {
+      "date": "2022-02-10",
+      "total_num_users": 210,
+      "num_participants": 160
+    },
+    {
+      "date": "2022-02-11",
+      "total_num_users": 210,
+      "num_participants": 193
+    },
+    {
+      "date": "2022-02-12",
+      "total_num_users": 210,
+      "num_participants": 22
+    }
+  ]
+}
