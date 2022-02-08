@@ -7,8 +7,9 @@ const profile = {
     email: 'michael_scott@theoffice.us',
     dob: new Date(1965, 2, 15),
     mobile: '+1-202-555-0101',
-    state: 'Pennsylvania',
+    state: 'PA',
     country: 'US',
+    city: 'Scranton',
     about: "I became a salesman because of people. I love making friends. But then I was promoted to manager at a very young age. And I still try to be a friend first. But, you know... when you're very successful, your co-workers look at you differently.",
 
     facebook: 'https://www.facebook.com/michael.scott.office',
@@ -38,7 +39,7 @@ const pickByKeys = (obj, keys) => {
 
 export function EditProfileProvider({ children }) {
     const keyMap = {
-        personal: ['fullName', 'email', 'dob', 'mobile', 'state', 'country', 'about', 'image'],
+        personal: ['fullName', 'email', 'dob', 'mobile', 'state', 'country', 'about', 'image', 'city'],
         official: ['cnOffice', 'cnTeam', 'role', 'skillset'],
         social: ['facebook', 'twitter', 'instagram', 'linkedin', 'snapchat', 'stackoverflow'],
         interests: ['food', 'music', 'sports', 'books'],
@@ -105,7 +106,7 @@ export function EditProfileProvider({ children }) {
     }
 
     const updatePersonalInfo = (key, eve) => {
-        if (['dob', 'image'].includes(key)) {
+        if (['dob', 'profile'].includes(key)) {
             setPersonalInfo({ ...personalInfo, [key]: eve });
             return;
         }
