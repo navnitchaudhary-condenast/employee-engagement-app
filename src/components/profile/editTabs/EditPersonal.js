@@ -16,6 +16,8 @@ import EditProfileContext from "../editProfileContext";
 import fileUtils from "../../../utils/file";
 import { styled } from "@mui/material/styles";
 import { Country, State, City } from "country-state-city";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faUserCircle } from "@fortawesome/free-solid-svg-icons";
 
 const { convertToBase64 } = fileUtils;
 const InputNoDisplay = styled("input")({
@@ -42,19 +44,39 @@ const EditPersonal = () => {
     const file = e.target.files[0];
     if (file) {
       const base64Image = await convertToBase64(file);
-      updatePersonalInfo("profile", base64Image);
+      updatePersonalInfo("newImage", base64Image);
     }
   };
+
+  function renderProfileImage() {
+    let imgSrc = null;
+    if (personalInfo.newImage) {
+      imgSrc = personalInfo.newImage;
+    } else if (personalInfo.picture) {
+      imgSrc = personalInfo.picture
+    } else {
+      return (
+        <Box sx={{
+          my: 4
+        }}>
+          <FontAwesomeIcon icon={faUserCircle} size="6x" />
+        </Box>
+      )
+    }
+    return (
+      <Box
+        component="img"
+        sx={{ height: "auto", width: "100%", borderRadius: "10px" }}
+        alt="Profile Photo"
+        src={imgSrc}
+      ></Box>
+    )
+  }
 
   return (
     <Grid container spacing={2}>
       <Grid item xs={12} md={4}>
-        <Box
-          component="img"
-          sx={{ height: "auto", width: "100%", borderRadius: "10px" }}
-          alt="Profile Photo"
-          src={personalInfo.profile || personalInfo.image}
-        ></Box>
+        {renderProfileImage()}
 
         <label htmlFor="fileUpload">
           <InputNoDisplay
@@ -153,7 +175,7 @@ const EditPersonal = () => {
                         {country.name}
                       </MenuItem>
                     );
-                  }): null}
+                  }) : null}
               </Select>
             </FormControl>
           </Grid>
@@ -172,14 +194,14 @@ const EditPersonal = () => {
                 value={personalInfo.state || ""}
                 onChange={(newValue) => updatePersonalInfo("state", newValue)}
               >
-                  {stateList ?
+                {stateList ?
                   stateList.map((state) => {
                     return (
                       <MenuItem key={state.isoCode} value={state.isoCode}>
                         {state.name}
                       </MenuItem>
                     );
-                  }): null}
+                  }) : null}
               </Select>
             </FormControl>
           </Grid>
@@ -205,7 +227,7 @@ const EditPersonal = () => {
                         {city.name}
                       </MenuItem>
                     );
-                  }): null}
+                  }) : null}
               </Select>
             </FormControl>
           </Grid>
