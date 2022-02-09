@@ -1,48 +1,11 @@
 import * as React from 'react';
-import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
-import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
-import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
-import { Container } from '@mui/material';
 import Grid from "@mui/material/Grid";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faPlus } from '@fortawesome/free-solid-svg-icons'
-import CardMedia from "@mui/material/CardMedia";
 import classes from "./ActivityList.module.css";
 
-const styles = {
-    card: {
-      margin: 16,
-      display: "flex",
-      flexDirection: "column",
-      justifyContent: "space-between"
-    }
-  };
-
-
 const ActivityList = () => {
-    const data = [
-        {
-            title: "title 1",
-            details: "details 1",
-            rules: "rules"
-        },
-        {
-            title: "title 1",
-            details: "details 1",
-            rules: "rules"
-        },
-        {
-            title: "title 1",
-            details: "details 1",
-            rules: "rules"
-        }
-    ];
-  
-    const plusIcon = <FontAwesomeIcon icon={faPlus} size="4x"/>
-   
     return (
         <React.Fragment>
             <Typography variant="h5" component="div" gutterBottom>
@@ -131,15 +94,6 @@ const ActivityList = () => {
                                     <br />
                                 </Typography>
                             </CardContent>
-                            {/* <CardContent>
-                                <div>
-                                    {plusIcon}
-                                </div>
-                                <br/>
-                                <Typography sx={{ mb: 0.25 }} color="text.secondary">
-                                    Add Activity
-                                </Typography>
-                            </CardContent> */}
                         </Card>
                     </a>
                 </Grid>
