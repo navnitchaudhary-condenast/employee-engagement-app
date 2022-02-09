@@ -33,12 +33,13 @@ const EditPersonal = () => {
   const [cityList, setCityList] = useState([]);
 
   useEffect(() => {
-    setStateList(State.getStatesOfCountry(personalInfo.country));
+    setStateList(State.getStatesOfCountry(country));
+    setCityList([]);
   }, [country]);
 
   useEffect(() => {
     setCityList(City.getCitiesOfState(country, state));
-  }, [state]);
+  }, [country, state]);
 
   const uploadImage = async (e) => {
     const file = e.target.files[0];

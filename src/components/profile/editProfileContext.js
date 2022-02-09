@@ -34,7 +34,10 @@ export function EditProfileProvider({ children }) {
     const onSaveProfile = async () => {
         setUpdatingProfile(true);
         const requestObj = {
-            ...personalInfo,
+            ...pickByKeys(personalInfo, ['name', 'email', 'dob', 'mobile', 'about']),
+            address: {
+                ...pickByKeys(personalInfo, ['country', 'state', 'city']),
+            },
             social: socialInfo,
             interests: interestsInfo,
             office: officialInfo,
@@ -43,10 +46,8 @@ export function EditProfileProvider({ children }) {
             requestObj.newPassword = passwordInfo.new;
             requestObj.currentPassword = passwordInfo.current;
         }
-        if(requestObj.newImage) {
-            requestObj.picture = /,(.+)/.exec(requestObj.newImage)[1];
-        } else {
-            delete requestObj.picture;
+        if(personalInfo.newImage) {
+            requestObj.picture = /,(.+)/.exec(personalInfo.newImage)[1];
         }
         const response = await axios.patch(`http://localhost:3005/v1/users/${userId}`, requestObj);
         setProfileFieldValues(response.data);
