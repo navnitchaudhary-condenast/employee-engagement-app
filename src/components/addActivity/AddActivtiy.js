@@ -4,22 +4,27 @@ import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import Typography from "@mui/material/Typography";
 import Grid from "@mui/material/Grid";
-import FormControlLabel from "@mui/material/FormControlLabel";
-import Checkbox from "@mui/material/Checkbox";
 import Button from "@mui/material/Button";
 import Container from "@mui/material/Container";
+import axios from "../../axios";
+import { useHistory } from 'react-router-dom';
 
 const AddActivity = () => { 
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
+    const history = useHistory();
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        // eslint-disable-next-line no-console
-        console.log({
-          title: title,
-          description: description
-        });
+
+        const responseObj = {
+            "name": title,
+            "description": description
+        }
+        
+        axios.post(`v1/engagements`, responseObj);
+        
+        history.push("/activity-list");
       };
 
     return (

@@ -48,15 +48,28 @@ const Header = () => {
         {isAuthenticated && (
           <Fragment>
             <nav>
-              <Link
-                underline="none"
-                variant="button"
-                color="#fff"
-                href="/todays-engagement-activity"
-                sx={{ my: 1, mx: 1.5 }}
-              >
-                Today's Engagement Activity
-              </Link>
+              {user.role === 'user' && 
+                <Link
+                  underline="none"
+                  variant="button"
+                  color="#fff"
+                  href="/todays-engagement-activity"
+                  sx={{ my: 1, mx: 1.5 }}
+                >
+                  Today's Engagement Activity
+                </Link>}
+              {
+                user.role === 'admin' && 
+                <Link
+                  underline="none"
+                  variant="button"
+                  color="#fff"
+                  href="/activity-list"
+                  sx={{ my: 1, mx: 1.5 }}
+                >
+                  Activity List
+                </Link>
+              }
               <Link
                 variant="button"
                 color="#fff"
