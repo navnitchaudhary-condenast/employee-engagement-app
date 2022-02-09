@@ -16,7 +16,6 @@ import axios from "../../axios";
 
 export default function GuessThePicture(props) {
   const { user } = useSelector(userSelector);
-  console.log(props);
   const [selection, setSelection] = useState("");
   const saveResponse = async () => {
     await axios.post("/v1/engagements/saveResponse", {
@@ -27,6 +26,7 @@ export default function GuessThePicture(props) {
       response: selection,
       userId: user.id,
     });
+    props.refresh();
   };
 
   return (
@@ -57,7 +57,7 @@ export default function GuessThePicture(props) {
               <FormControlLabel
                 key={option}
                 value={option}
-                control={props.activity.response === option ? <Radio checked /> : <Radio />}
+                control={props.activity.response === option ? <Radio checked /> : <Radio disabled={props.activity.response} />}
                 label={option}
               />
             ))}

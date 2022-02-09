@@ -10,7 +10,7 @@ import { useHistory } from "react-router-dom";
 
 import { userSelector } from "../../slices/user";
 
-import appLogo from "../../JIFFY-1.png";
+import appLogo from "../../logo.png";
 import classes from "./Header.module.css";
 import { Fragment, useState } from "react";
 
