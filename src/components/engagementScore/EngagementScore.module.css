@@ -1,0 +1,79 @@
+.ActivityName {
+  font-weight: bold;
+}
+
+.Box {
+  color: #fff!important;
+  background-color: #17a2b8!important;
+  border-radius: 0.25rem;
+  box-shadow: 0 0 1px rgb(0 0 0 / 13%), 0 1px 3px rgb(0 0 0 / 20%);
+  position: relative;
+}
+
+.Icon {
+  font-size: 50px !important;
+}
+
+.Inner {
+  padding: 10px;
+}
+
+.EngagementScore {
+  max-width: 100%;
+}
+
+.EngagementDetails {
+  padding: 10px;
+}
+
+.Score {
+  font-size: 40px;
+  padding: 0px;
+  margin: 0px;
+}
+
+.FlipCard {
+  background-color: transparent;
+  width: 300px;
+  height: 170px;
+  border: 1px solid #f1f1f1;
+  perspective: 1000px; /* Remove this if you don't want the 3D effect */
+  cursor: pointer;
+}
+
+/* This container is needed to position the front and back side */
+.FlipCardInner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+/* Do an horizontal flip when you move the mouse over the flip box container */
+.FlipCard:hover .FlipCardInner {
+  transform: rotateY(180deg);
+}
+
+/* Position the front and back side */
+.FlipCardFront, .FlipCardBack {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden; /* Safari */
+  backface-visibility: hidden;
+}
+
+/* Style the front side (fallback if image is missing) */
+.FlipCardFront {
+  background-color: #bbb;
+  color: black;
+}
+
+/* Style the back side */
+.FlipCardBack {
+  background-color: #2980b9;
+  color: white;
+  transform: rotateY(180deg);
+}

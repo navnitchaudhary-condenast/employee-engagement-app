@@ -1,4 +1,4 @@
-import * as React from "react";
+import { useState } from "react";
 import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
@@ -10,42 +10,47 @@ import FormControlLabel from "@mui/material/FormControlLabel";
 import FormControl from "@mui/material/FormControl";
 import FormLabel from "@mui/material/FormLabel";
 
-export default function GuessThePicture() {
+import axios from "../../axios";
+
+export default function GuessThePicture(props) {
+  const [selection, setSelection] = useState("");
+  const saveResponse = async () => {
+    await axios.post("/", {option: selection});
+  }
+
   return (
-    <Card sx={{ maxWidth: 400 }}>
-      <CardMedia
-        component="img"
-        height="140"
-        image="https://mui.com/static/images/cards/contemplative-reptile.jpg"
-        alt="green iguana"
-      />
+    <Card
+      sx={{
+        height: "100%",
+        display: "flex",
+        flexDirection: "column",
+      }}
+    >
+      <CardMedia component="img" image={props.activity.image} alt="Profile" />
       <CardContent>
         <FormControl>
           <FormLabel id="demo-row-radio-buttons-group-label">
-            Guess who the picture is ?
+            {props.activity.activityName}
           </FormLabel>
           <RadioGroup
             row
             aria-labelledby="demo-row-radio-buttons-group-label"
             name="row-radio-buttons-group"
+            onChange={(e) => setSelection(e.target.value)}
           >
-            <FormControlLabel
-              value="female"
-              control={<Radio />}
-              label="Female"
-            />
-            <FormControlLabel value="male" control={<Radio />} label="Male" />
-            <FormControlLabel value="other" control={<Radio />} label="Other" />
-            <FormControlLabel
-              value="disabled"
-              control={<Radio />}
-              label="other"
-            />
+            {props.activity.options.map((option) => (
+              <FormControlLabel
+                key={option}
+                value={option}
+                control={<Radio />}
+                label={option}
+              />
+            ))}
           </RadioGroup>
         </FormControl>
       </CardContent>
       <CardActions>
-        <Button size="small">Submit</Button>
+        <Button size="small" disabled={!selection} onClick={saveResponse}>Submit</Button>
       </CardActions>
     </Card>
   );
