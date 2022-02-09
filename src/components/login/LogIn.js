@@ -58,6 +58,8 @@ const LogIn = () => {
         Sign in
       </Typography>
       <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
+      <Grid container spacing={2}>
+              <Grid item xs={12}>
         <TextField
           margin="normal"
           required
@@ -68,6 +70,8 @@ const LogIn = () => {
           autoComplete="email"
           autoFocus
         />
+        </Grid>
+              <Grid item xs={12}>
         <TextField
           margin="normal"
           required
@@ -78,6 +82,8 @@ const LogIn = () => {
           id="password"
           autoComplete="current-password"
         />
+        </Grid>
+        </Grid>
         <FormControlLabel
           control={<Checkbox value="remember" color="primary" />}
           label="Remember me"

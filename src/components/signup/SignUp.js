@@ -24,6 +24,10 @@ import { styled } from "@mui/material/styles";
 import { ClassNames } from "@emotion/react";
 import classes from "./SignUp.module.css";
 import { Country, State, City } from "country-state-city";
+import { useDispatch } from "react-redux";
+
+import axios from "../../axios";
+import { storeTokenAndUserProfile } from "../../slices/user";
 const theme = createTheme();
 const Input = styled("input")({
   display: "none",
@@ -42,7 +46,7 @@ const SignUp = () => {
   const [profileImage, setProfileImage] = useState(null);
   const [profileUrl, setProfileUrl] = useState(null);
   const [profileBase64Data, setProfileBase64Data] = useState("");
-
+  const dispatch = useDispatch();
   useEffect(() => {
     setCountaryList(Country.getAllCountries());
   }, []);
@@ -53,32 +57,69 @@ const SignUp = () => {
     }
   }, [profileImage]);
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    const data = new FormData(event.currentTarget);
+    // const data = new FormData(event.currentTarget);
     // eslint-disable-next-line no-console
-    console.log({
-      email: data.get("email"),
-      password: data.get("password"),
-    });
+    console.log(
+      fullName,
+      emailId,
+      password,
+      profileBase64Data,
+      countaryCode,
+      stateCode,
+      cityCode
+    );
+
+    // const bodyObj = {
+    //   name: fullName,
+    //   email: emailId ,
+    //   password: password ,
+    //   picture: profileBase64Data.slice(profileBase64Data.indexOf(",")+1),
+    //   address: {
+    //     country: countaryCode ,
+    //     state: stateCode,
+    //     city: cityCode
+    //   }
+    // }
+    try {
+      const resp = await axios.post("/v1/auth/register", {
+        name: fullName,
+        email: emailId,
+        password: password,
+        picture: profileBase64Data.slice(profileBase64Data.indexOf(",") + 1),
+        address: {
+          country: countaryCode,
+          state: stateCode,
+          city: cityCode,
+        },
+      });
+      localStorage.setItem("accessToken", resp.data.token.accessToken);
+      localStorage.setItem("user", JSON.stringify(resp.data.user));
+      dispatch(
+        storeTokenAndUserProfile({
+          accessToken: resp.data.token.accessToken,
+          user: resp.data.user,
+        })
+      );
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   const onNameChange = (event) => {
     const name = event.target.value;
     setFullName(name);
-    console.log("==Name",name)
   };
 
   const onEmailIdChange = (event) => {
     const email = event.target.value;
     setEmailId(email);
-    console.log("==Name",email)
   };
 
   const onPasswordChange = (event) => {
     const password = event.target.value;
     setPassword(password);
-    console.log("==Name",password)
   };
 
   const onCountaryChange = (event) => {
@@ -106,16 +147,10 @@ const SignUp = () => {
     let reader = new FileReader();
     reader.onloadend = function () {
       console.log("BASE64RESULT", reader.result);
-      setProfileBase64Data(reader.result)
+      setProfileBase64Data(reader.result);
     };
     reader.readAsDataURL(file);
   };
-
-  const isSubmitEnabled = () =>{
-   const check = (fullName && emailId && password && countaryCode && stateCode && cityCode && profileUrl);
-   console.log("===chce",check);
-   return check;
-  }
 
   return (
     <ThemeProvider theme={theme}>
@@ -184,7 +219,8 @@ const SignUp = () => {
                   </InputLabel>
                   <Select
                     labelId="demo-simple-select-helper-label"
-                    id="demo-simple-select-helper"
+                    id="countary"
+                    id="name"
                     value={countaryCode}
                     label="Countary"
                     className={classes.Countary}
@@ -293,7 +329,17 @@ const SignUp = () => {
               fullWidth
               variant="contained"
               sx={{ mt: 3, mb: 2 }}
-              disabled={!(fullName && emailId && password && countaryCode && stateCode && cityCode && profileUrl)}
+              disabled={
+                !(
+                  fullName &&
+                  emailId &&
+                  password &&
+                  countaryCode &&
+                  stateCode &&
+                  cityCode &&
+                  profileUrl
+                )
+              }
             >
               Sign Up
             </Button>
