@@ -6,11 +6,13 @@ import EngagementByCategory from "./subcomponents/EngagementByCategory";
 import DailyEngagementRate from "./subcomponents/DailyEngagementRate";
 
 import data from "./mock_response.json";
+import FactsManagement from "./subcomponents/FactsManagement";
 
 export default function Album() {
   return (
     <>
       <EngagementActivities />
+      <FactsManagement />
       <DailyActiveUsers
         data={data.daily_active_users.map((day) => ({
           ...day,

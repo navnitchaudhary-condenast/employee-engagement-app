@@ -20,7 +20,7 @@ const FactOfTheDay = () => {
                     }} />
                     <Box>
                         <Typography variant="body1" sx={{p: 2}}>
-                            Approaches to covers have changed dramatically over the years at <span>Vogue</span>, from Edward Steichen’s first photographic color cover in 1932, to Salvador Dalí’s signature surrealist, dystopian landscape. The title delights in offering an element of surprise.
+                            Approaches to covers have changed dramatically over the years at Vogue, from Edward Steichen’s first photographic color cover in 1932, to Salvador Dalí’s signature surrealist, dystopian landscape. The title delights in offering an element of surprise.
                         </Typography>
                     </Box>
                 </Grid>
