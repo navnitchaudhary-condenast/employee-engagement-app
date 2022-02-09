@@ -39,13 +39,13 @@ export default function EngagementActivities({ activities }) {
   ];
 
   return (
-    <Container sx={{ py: 8 }} maxWidth="md">
+    <Container sx={{ mt: 8 }} maxWidth="md">
       <Typography
         component="h2"
         variant="h5"
-        align="left"
+        align="center"
         color="text.primary"
-        gutterBottom
+        mb={3}
       >
         Engagement activities
       </Typography>

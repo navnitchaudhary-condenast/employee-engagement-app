@@ -13,25 +13,17 @@ import data from "./mock_response.json";
 export default function Album() {
   return (
     <>
-      <Box
-        sx={{
-          bgcolor: "background.paper",
-          pt: 8,
-          pb: 6,
-        }}
-      >
-        <Container maxWidth="sm">
-          <Typography
-            component="h1"
-            variant="h2"
-            align="center"
-            color="text.primary"
-            gutterBottom
-          >
-            Analytics
-          </Typography>
-        </Container>
-      </Box>
+      <Container maxWidth="md">
+        <Typography
+          component="h1"
+          variant="h2"
+          align="center"
+          color="text.primary"
+          mt={3}
+        >
+          Analytics
+        </Typography>
+      </Container>
       <EngagementActivities activities={data.engagement_activities} />
       <DailyActiveUsers
         data={data.daily_active_users.map((day) => ({
