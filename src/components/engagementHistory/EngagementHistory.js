@@ -6,7 +6,7 @@ import Container from "@mui/material/Container";
 
 import axios from "../../axios";
 
-export default function EngagementDetails() {
+export default function EngagementHistory() {
   const [engagements, setEngagements] = useState({});
 
   useEffect(() => {
@@ -33,16 +33,6 @@ export default function EngagementDetails() {
       field: "date",
       headerName: "Activity Date",
       flex: 1,
-    },
-    {
-      field: "score",
-      headerName: "Score",
-      flex: 1,
-    },
-    {
-      field: "response",
-      headerName: "Response",
-      flex: 1,
     }
   ];
 
@@ -55,7 +45,7 @@ export default function EngagementDetails() {
         color="text.primary"
         gutterBottom
       >
-        Engagement Details
+        Engagement History
       </Typography>
       <DataGrid
         getRowId={(row) => row._id}

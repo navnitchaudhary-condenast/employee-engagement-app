@@ -12,12 +12,13 @@ import Header from "./components/header/Header";
 import LogIn from "./components/login/LogIn";
 import SignUp from "./components/signup/SignUp";
 import TodaysEngagementActivity from "./components/todaysEngagementActivity/todaysEngagementActivity";
-import AdapterDateFns from '@mui/lab/AdapterDateFns';
-import LocalizationProvider from '@mui/lab/LocalizationProvider';
+import AdapterDateFns from "@mui/lab/AdapterDateFns";
+import LocalizationProvider from "@mui/lab/LocalizationProvider";
 import EditProfile from "./components/profile/EditProfile";
 import ActivityList from "./components/activityList/ActivityList";
 import AddActivity from "./components/addActivity/AddActivtiy";
 import EngagementDetails from "./components/engagementDetails/EngagementDetails";
+import EngagementHistory from "./components/engagementHistory/EngagementHistory";
 import { userSelector } from "./slices/user";
 
 const theme = createTheme();
@@ -25,10 +26,10 @@ const theme = createTheme();
 const App = () => {
   const pathname = window.location.pathname;
   const history = useHistory();
-  const {isAuthenticated} = useSelector(userSelector);
+  const { isAuthenticated } = useSelector(userSelector);
 
   useEffect(() => {
-    if (isAuthenticated && (pathname === "/" || pathname === "/signup") ) {
+    if (isAuthenticated && (pathname === "/" || pathname === "/signup")) {
       window.location.pathname = "/dashboard";
     }
 
@@ -57,9 +58,13 @@ const App = () => {
                     component={TodaysEngagementActivity}
                   />
                   <Route
-                  path="/engagement-details"
-                  component={EngagementDetails}
-                />
+                    path="/engagement-details"
+                    component={EngagementDetails}
+                  />
+                  <Route
+                    path="/engagement-history"
+                    component={EngagementHistory}
+                  />
                   <Route path="/" component={LogIn} />
                 </Switch>
               </BrowserRouter>

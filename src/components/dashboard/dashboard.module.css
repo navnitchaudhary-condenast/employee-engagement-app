@@ -1,0 +1,40 @@
+.Box {
+  flex-basis: 32%;
+}
+
+.BoxWrapper {
+  display: flex;
+  gap: 2;
+  justify-content: space-between;
+}
+
+
+.Container {
+  color: #fff!important;
+  background: linear-gradient(to right, #ffbf96, #fe7096) !important;
+  border-radius: 0.25rem;
+  box-shadow: 0 0 1px rgb(0 0 0 / 13%), 0 1px 3px rgb(0 0 0 / 20%);
+  position: relative;
+  height: 170px;
+  text-align: center;
+  line-height: 86px;
+  cursor: pointer;
+  font-size: 25px;
+}
+
+.Container2 {
+  color: #fff!important;
+  background: linear-gradient(to right, #90caf9, #047edf 99%) !important;;
+  border-radius: 0.25rem;
+  box-shadow: 0 0 1px rgb(0 0 0 / 13%), 0 1px 3px rgb(0 0 0 / 20%);
+  position: relative;
+  height: 170px;
+  text-align: center;
+  line-height: 86px;
+  cursor: pointer;
+  font-size: 25px;
+}
+
+.Icon {
+  font-size: 50px !important;
+}

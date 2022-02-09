@@ -52,7 +52,7 @@ const AddActivity = () => {
                         </Grid> */}
                     </Grid>
                     <Button type="submit" variant="contained" sx={{ mt: 3, mb: 2 }}>
-                        Add Activity
+                        Publish
                     </Button>
                 </Box>
             </Container>

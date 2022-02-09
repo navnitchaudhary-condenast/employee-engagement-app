@@ -4,7 +4,7 @@
 
 .Box {
   color: #fff!important;
-  background-color: #17a2b8!important;
+  background: linear-gradient(to right, #84d9d2, #07cdae) !important;
   border-radius: 0.25rem;
   box-shadow: 0 0 1px rgb(0 0 0 / 13%), 0 1px 3px rgb(0 0 0 / 20%);
   position: relative;
@@ -33,8 +33,7 @@
 }
 
 .FlipCard {
-  background-color: transparent;
-  width: 300px;
+  background-color: transparent;;
   height: 170px;
   border: 1px solid #f1f1f1;
   perspective: 1000px; /* Remove this if you don't want the 3D effect */
@@ -73,6 +72,7 @@
 
 /* Style the back side */
 .FlipCardBack {
+  padding-top: 10px;
   background-color: #2980b9;
   color: white;
   transform: rotateY(180deg);
