@@ -1,9 +1,24 @@
-import * as React from "react";
+import React, { useState, useEffect } from "react";
 import { DataGrid } from "@mui/x-data-grid";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 
-export default function EngagementActivities({ activities }) {
+import axios from "../../../axios";
+
+export default function EngagementActivities() {
+  const [results, setResults] = useState([]);
+
+  useEffect(() => {
+    const fetchdata = async () => {
+      const { data } = await axios.get("/v1/engagements");
+      console.log(data);
+
+      setResults(data.map((result) => ({ ...result, id: result._id })));
+    };
+
+    fetchdata();
+  }, []);
+
   const columns = [
     {
       field: "name",
@@ -11,29 +26,18 @@ export default function EngagementActivities({ activities }) {
       flex: 2,
     },
     {
-      field: "category",
+      field: "type",
       headerName: "Category",
-      flex: 2,
-      valueGetter: ({ value }) => value.name,
+      flex: 1,
     },
     {
-      field: "date_published",
+      field: "date",
       headerName: "Date published",
       flex: 1,
     },
     {
-      field: "num_users",
-      headerName: "Num. users",
-      flex: 1,
-    },
-    {
-      field: "num_participants",
-      headerName: "Num. participants",
-      flex: 1,
-    },
-    {
-      field: "participation_rate",
-      headerName: "Participation rate (%)",
+      field: "time",
+      headerName: "Time published",
       flex: 1,
     },
   ];
@@ -51,7 +55,7 @@ export default function EngagementActivities({ activities }) {
       </Typography>
       <DataGrid
         autoHeight
-        rows={activities}
+        rows={results}
         columns={columns}
         pageSize={10}
         rowsPerPageOptions={[10]}

@@ -10,7 +10,7 @@ import data from "./mock_response.json";
 export default function Album() {
   return (
     <>
-      <EngagementActivities activities={data.engagement_activities} />
+      <EngagementActivities />
       <DailyActiveUsers
         data={data.daily_active_users.map((day) => ({
           ...day,
