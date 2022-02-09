@@ -11,23 +11,23 @@ const EditOfficial = () => {
             <Grid item xs={12}>
                 <TextField
                     fullWidth
-                    id="cnOffice"
+                    id="name"
                     label="CN Office"
-                    name="cnOffice"
+                    name="name"
                     size='small'
-                    value={officialInfo.cnOffice || ''}
-                    onChange={(newValue) => updateOfficialInfo('cnOffice', newValue)}
+                    value={officialInfo.name || ''}
+                    onChange={(newValue) => updateOfficialInfo('name', newValue)}
                 />
             </Grid>
             <Grid item xs={12}>
                 <TextField
                     fullWidth
-                    id="cnTeam"
+                    id="team"
                     label="CN Team/Project"
-                    name="cnTeam"
+                    name="team"
                     size='small'
-                    value={officialInfo.cnTeam || ''}
-                    onChange={(newValue) => updateOfficialInfo('cnTeam', newValue)}
+                    value={officialInfo.team || ''}
+                    onChange={(newValue) => updateOfficialInfo('team', newValue)}
                 />
             </Grid>
             <Grid item xs={12}>
@@ -44,14 +44,14 @@ const EditOfficial = () => {
             <Grid item xs={12}>
                 <TextField
                     fullWidth
-                    id="skillset"
+                    id="skillSet"
                     label="Skill Set"
-                    name="skillset"
+                    name="skillSet"
                     size='small'
                     multiline
                     rows={3}
-                    value={officialInfo.skillset || ''}
-                    onChange={(newValue) => updateOfficialInfo('skillset', newValue)}
+                    value={officialInfo.skillSet || ''}
+                    onChange={(newValue) => updateOfficialInfo('skillSet', newValue)}
                 />
             </Grid>
         </Grid >
