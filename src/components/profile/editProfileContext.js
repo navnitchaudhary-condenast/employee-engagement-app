@@ -52,6 +52,7 @@ export function EditProfileProvider({ children }) {
         const response = await axios.patch(`v1/users/${userId}`, requestObj);
         setProfileFieldValues(response.data);
         setUpdatingProfile(false);
+        return response;
     }
 
     const setProfileFieldValues = (profile) => {
