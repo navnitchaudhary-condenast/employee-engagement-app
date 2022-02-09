@@ -74,15 +74,15 @@ const EditPersonal = () => {
             <TextField
               required
               fullWidth
-              id="fullname"
+              id="name"
               label="Full Name"
-              name="fullName"
+              name="name"
               autoComplete="name"
               autoFocus
               size="small"
               disabled
-              value={personalInfo.fullName || ""}
-              onChange={(newValue) => updatePersonalInfo("fullName", newValue)}
+              value={personalInfo.name || ""}
+              onChange={(newValue) => updatePersonalInfo("name", newValue)}
             />
           </Grid>
           <Grid item xs={12} md={6}>
