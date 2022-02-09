@@ -10,12 +10,7 @@ const Copyright = (props) => {
       align="center"
       {...props}
     >
-      {"Copyright © "}
-      <Link color="inherit" href="https://mui.com/">
-        Your Website
-      </Link>{" "}
-      {new Date().getFullYear()}
-      {"."}
+      Copyright © Jiffy {new Date().getFullYear()}.
     </Typography>
   );
 };
@@ -24,7 +19,7 @@ const Footer = () => {
   return (
     <Box sx={{ bgcolor: "background.paper", p: 6 }} component="footer">
       <Typography variant="h6" align="center" gutterBottom>
-        Footer
+        Got an idea for an engagement activity?
       </Typography>
       <Typography
         variant="subtitle1"
@@ -32,7 +27,11 @@ const Footer = () => {
         color="text.secondary"
         component="p"
       >
-        Something here to give the footer a purpose!
+        Don't hesitate to{" "}
+        <Link color="inherit" href="mailto:support@jiffy.com">
+          email us
+        </Link>
+        .
       </Typography>
       <Copyright />
     </Box>
