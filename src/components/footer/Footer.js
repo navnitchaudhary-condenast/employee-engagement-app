@@ -4,7 +4,13 @@ import Typography from "@mui/material/Typography";
 
 const Copyright = (props) => {
   return (
-    <Typography variant="body2" align="center" {...props}>
+    <Typography
+      variant="body2"
+      align="center"
+      {...props}
+      mt={1}
+      color="lightgrey"
+    >
       Copyright © Jiffy {new Date().getFullYear()}.
     </Typography>
   );
@@ -13,7 +19,7 @@ const Copyright = (props) => {
 const Footer = () => {
   return (
     <Box
-      sx={{ bgcolor: "darkblue", p: 6 }}
+      sx={{ p: 2 }}
       component="footer"
       fullWidth
       color="white"
@@ -22,11 +28,8 @@ const Footer = () => {
         backgroundImage: "linear-gradient(315deg, #2a2a72 0%, #1976d2 74%)",
       }}
     >
-      <Typography variant="h6" align="center" gutterBottom>
-        Got an idea for an engagement activity?
-      </Typography>
-      <Typography variant="subtitle1" align="center" component="p">
-        Don't hesitate to{" "}
+      <Typography variant="h7" align="center">
+        Got an idea for an engagement activity? Don't hesitate to{" "}
         <Link color="inherit" href="mailto:support@jiffy.com">
           email us
         </Link>
