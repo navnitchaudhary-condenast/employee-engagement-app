@@ -59,7 +59,7 @@ export function EditProfileProvider({ children }) {
         personalFields.country = profile.address.country;
         personalFields.state = profile.address.state;
         personalFields.city = profile.address.city;
-        personalFields.picture = profile.picture ? `${process.env.REACT_APP_API_BASE_URL}${profile.picture}` : null;
+        personalFields.picture = profile.picture ? `${process.env.REACT_APP_API_BASE_URL}/${profile.picture}` : null;
         setPersonalInfo(personalFields);
         setSocialInfo({...profile.social});
         setInterestsInfo({...profile.interests});
