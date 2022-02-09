@@ -69,7 +69,7 @@ const FactsManagement = () => {
             }} open={displayAddFactDialog}
                 fullWidth
                 maxWidth="sm">
-                <DialogTitle>Add Fact</DialogTitle>
+                <DialogTitle>Add a new fact</DialogTitle>
                 <DialogContent>
                     <TextField
                         autoFocus
