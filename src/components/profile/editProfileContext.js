@@ -22,7 +22,7 @@ export function EditProfileProvider({ children }) {
     useEffect(() => {
         async function getProfile() {
             setProfileLoading(true);
-            const { data: profileData } = await axios.get('http://localhost:3005/v1/users/profile');
+            const { data: profileData } = await axios.get('v1/users/profile');
             setProfileFieldValues(profileData);
             setUserId(profileData.id);
             setProfileLoading(false);
@@ -49,7 +49,7 @@ export function EditProfileProvider({ children }) {
         if(personalInfo.newImage) {
             requestObj.picture = /,(.+)/.exec(personalInfo.newImage)[1];
         }
-        const response = await axios.patch(`http://localhost:3005/v1/users/${userId}`, requestObj);
+        const response = await axios.patch(`v1/users/${userId}`, requestObj);
         setProfileFieldValues(response.data);
         setUpdatingProfile(false);
     }
@@ -59,7 +59,7 @@ export function EditProfileProvider({ children }) {
         personalFields.country = profile.address.country;
         personalFields.state = profile.address.state;
         personalFields.city = profile.address.city;
-        personalFields.picture = profile.picture ? `http://localhost:3005/${profile.picture}` : null;
+        personalFields.picture = profile.picture ? `${process.env.REACT_APP_API_BASE_URL}${profile.picture}` : null;
         setPersonalInfo(personalFields);
         setSocialInfo({...profile.social});
         setInterestsInfo({...profile.interests});
