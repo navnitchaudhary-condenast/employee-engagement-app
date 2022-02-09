@@ -10,18 +10,22 @@ import {
 
 export default function EngagementByCategory({ categories }) {
   return (
-    <Container sx={{ py: 8 }} maxWidth="md">
+    <Container sx={{ mt: 8 }} maxWidth="md">
       <Typography
         component="h2"
         variant="h5"
-        align="left"
+        align="center"
         color="text.primary"
-        gutterBottom
+        mb={3}
       >
         Engagement by category
       </Typography>
       <Chart data={categories}>
-        <PieSeries valueField="pct" argumentField="category" />
+        <PieSeries
+          valueField="pct"
+          argumentField="category"
+          innerRadius={0.6}
+        />
         <Legend />
       </Chart>
     </Container>

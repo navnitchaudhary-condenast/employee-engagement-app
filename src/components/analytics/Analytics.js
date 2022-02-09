@@ -1,7 +1,4 @@
 import * as React from "react";
-import Box from "@mui/material/Box";
-import Typography from "@mui/material/Typography";
-import Container from "@mui/material/Container";
 
 import EngagementActivities from "./subcomponents/EngagementActivities";
 import DailyActiveUsers from "./subcomponents/DailyActiveUsers";
@@ -13,26 +10,7 @@ import data from "./mock_response.json";
 export default function Album() {
   return (
     <>
-      <Box
-        sx={{
-          bgcolor: "background.paper",
-          pt: 8,
-          pb: 6,
-        }}
-      >
-        <Container maxWidth="sm">
-          <Typography
-            component="h1"
-            variant="h2"
-            align="center"
-            color="text.primary"
-            gutterBottom
-          >
-            Analytics
-          </Typography>
-        </Container>
-      </Box>
-      <EngagementActivities activities={data.engagement_activities} />
+      <EngagementActivities />
       <DailyActiveUsers
         data={data.daily_active_users.map((day) => ({
           ...day,
