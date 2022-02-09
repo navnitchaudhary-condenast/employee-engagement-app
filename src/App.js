@@ -67,11 +67,9 @@ const App = () => {
                   />
                   <Route path="/" component={LogIn} />
                 </Switch>
-                {pathname !== "/" && pathname !== "/signup" && (
-                  <Footer></Footer>
-                )}
               </BrowserRouter>
             </Container>
+            {pathname !== "/" && pathname !== "/signup" && <Footer></Footer>}
           </main>
         </LocalizationProvider>
       </ThemeProvider>

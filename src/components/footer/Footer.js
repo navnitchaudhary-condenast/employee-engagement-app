@@ -6,9 +6,10 @@ const Copyright = (props) => {
   return (
     <Typography
       variant="body2"
-      color="text.secondary"
       align="center"
       {...props}
+      mt={1}
+      color="lightgrey"
     >
       Copyright © Jiffy {new Date().getFullYear()}.
     </Typography>
@@ -17,17 +18,18 @@ const Copyright = (props) => {
 
 const Footer = () => {
   return (
-    <Box sx={{ bgcolor: "background.paper", p: 6 }} component="footer">
-      <Typography variant="h6" align="center" gutterBottom>
-        Got an idea for an engagement activity?
-      </Typography>
-      <Typography
-        variant="subtitle1"
-        align="center"
-        color="text.secondary"
-        component="p"
-      >
-        Don't hesitate to{" "}
+    <Box
+      sx={{ p: 2 }}
+      component="footer"
+      fullWidth
+      color="white"
+      style={{
+        backgroundColor: "#2a2a72",
+        backgroundImage: "linear-gradient(315deg, #2a2a72 0%, #1976d2 74%)",
+      }}
+    >
+      <Typography variant="h7" align="center">
+        Got an idea for an engagement activity? Don't hesitate to{" "}
         <Link color="inherit" href="mailto:support@jiffy.com">
           email us
         </Link>
