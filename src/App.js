@@ -1,6 +1,8 @@
-import { BrowserRouter, Switch, Route } from "react-router-dom";
+import { BrowserRouter, Switch, Route, useHistory } from "react-router-dom";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import Container from "@mui/material/Container";
+import { useSelector } from "react-redux";
+import { useEffect } from "react";
 
 import "./App.css";
 import Dashboard from "./components/dashboard/Dashboard";
@@ -17,11 +19,24 @@ import EditProfile from "./components/profile/EditProfile";
 import ActivityList from "./components/activityList/ActivityList";
 import AddActivity from "./components/addActivity/AddActivtiy";
 import EngagementDetails from "./components/engagementDetails/EngagementDetails";
+import { userSelector } from "./slices/user";
 
 const theme = createTheme();
 
 const App = () => {
   const pathname = window.location.pathname;
+  const history = useHistory();
+  const {isAuthenticated} = useSelector(userSelector);
+
+  useEffect(() => {
+    if (isAuthenticated && (pathname === "/" || pathname === "/signup") ) {
+      window.location.pathname = "/dashboard";
+    }
+
+    if (!isAuthenticated && pathname !== "/" && pathname !== "/signup") {
+      window.location.pathname = "/";
+    }
+  }, [isAuthenticated]);
 
   return (
     <div className="App">
@@ -30,7 +45,7 @@ const App = () => {
           <main>
             <Container sx={{ py: 8, mt: 4 }} maxWidth="lg">
               <BrowserRouter>
-                {pathname !== "/" && pathname !== "/signup" && <Header></Header>}
+                <Header></Header>
                 <Switch>
                   <Route path="/signup" component={SignUp} />
                   <Route path="/my-organisation" component={MyOrganisation} />
