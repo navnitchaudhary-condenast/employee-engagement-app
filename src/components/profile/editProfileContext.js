@@ -43,8 +43,7 @@ export function EditProfileProvider({ children }) {
             office: officialInfo,
         };
         if (passwordInfo.current?.length > 3 && passwordInfo.new?.length > 3 && passwordInfo?.new === passwordInfo?.confirm) {
-            requestObj.newPassword = passwordInfo.new;
-            requestObj.currentPassword = passwordInfo.current;
+            requestObj.password = passwordInfo.new;
         }
         if(personalInfo.newImage) {
             requestObj.picture = /,(.+)/.exec(personalInfo.newImage)[1];
