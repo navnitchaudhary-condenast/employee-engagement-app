@@ -48,6 +48,15 @@ const Header = () => {
         {isAuthenticated && (
           <Fragment>
             <nav>
+            <Link
+                underline="none"
+                variant="button"
+                color="#fff"
+                href="/my-organisation"
+                sx={{ my: 1, mx: 1.5 }}
+              >
+                My Organisation
+              </Link>
               {user.role === 'user' && 
                 <Link
                   underline="none"
